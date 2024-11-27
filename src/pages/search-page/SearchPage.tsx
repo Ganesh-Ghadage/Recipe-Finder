@@ -17,7 +17,7 @@ function SearchPage() {
     const isLoading = useAppSelector((state) => state.loading.loading)
     const errorMsg = useAppSelector((state) => state.error.error)
 
-    const [abortController, createAbortController] = useAbortController()
+    const [, createAbortController] = useAbortController()
     const dispatch = useAppDispatch();
     const {query = ''} = useParams()
 

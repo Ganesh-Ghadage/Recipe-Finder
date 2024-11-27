@@ -15,7 +15,7 @@ interface Props {
 }
 
 function MenuCard({ menu, category }: Props) {
-  const [abortController, createAbortController] = useAbortController()
+  const [, createAbortController] = useAbortController()
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
