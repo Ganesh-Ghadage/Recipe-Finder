@@ -44,7 +44,7 @@ Follow these steps to run the Recipe Finder application locally:
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/your-username/recipe-finder.git
+   git clone https://github.com/Ganesh-Ghadage/Recipe-Finder.git
    ```
 2. Navigate to the project directory:
    ```bash
