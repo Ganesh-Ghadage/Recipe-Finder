@@ -20,12 +20,21 @@ function App() {
     return () => window.removeEventListener('resize', toggleIsResponsive)
   }, [])
   
+  useEffect(() => {
+    function toggleIsResponsive():void {
+      dispatch(setIsResponsive(false));
+    }
+    window.addEventListener('scroll', toggleIsResponsive)
+    toggleIsResponsive()
+    return () => window.removeEventListener('scroll', toggleIsResponsive)
+  }, [])
+
   
   return (
     <>
       <Header />
 
-      <div className={`w-full px-4 mb-14 bg-[#313131] ${isResponsive ? 'mt-72' : 'mt-24 '}`}>
+      <div className={`w-full px-4 mb-16 bg-[#313131] ${isResponsive ? 'mt-72' : 'mt-24 '}`}>
         <MenuList />
         <Outlet />
       </div>

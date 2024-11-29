@@ -7,7 +7,7 @@ import { mealTypes } from "@/sampleData/mealTypes";
 
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { toggleResponsive } from '../../features/responsive/responsiveSlice';
-import { menuState, setMenu } from "@/features/menu/menuSlice";
+import { clearMenu, menuState, setMenu } from "@/features/menu/menuSlice";
 
 const categories = [
   { name: "Cuisine", data: cuisines },
@@ -17,6 +17,7 @@ const categories = [
 
 function Header() {
   const isResponsive = useAppSelector((state) => state.responsive.isResponsive);
+  const menu = useAppSelector((state) => state.menu.category)
   const dispatch = useAppDispatch();
 
   const toggleMenu = () => {
@@ -25,7 +26,9 @@ function Header() {
 
   const handleMenuClick = (category: string) => {
     const categoryData = categories.find(item => item.name === category);
-    if (categoryData) {
+    if(menu.length > 0 && menu === categoryData?.name){
+      dispatch(clearMenu())
+    }else if (categoryData) {
       const menuPayload: menuState = {
         menu: categoryData.data,
         category: categoryData.name
@@ -42,7 +45,9 @@ function Header() {
 
       <div className={`text-xl font-semibold ${isResponsive ? 'flex flex-col gap-4' : 'flex flex-row'} items-center`}>
         <Link to={'/'}>
-          <h1 className={`px-6 ${isResponsive ? 'flex' : 'hidden'} md:flex hover:scale-110 cursor-pointer md:border-none md:py-0 md:px-4 active:bg-green-600`}>
+          <h1 className={`px-6 ${isResponsive ? 'flex' : 'hidden'} md:flex hover:scale-110 cursor-pointer md:border-none md:py-0 md:px-4 active:bg-green-600`}
+            onClick={() => dispatch(clearMenu())}
+          >
             Home
           </h1>
         </Link>
