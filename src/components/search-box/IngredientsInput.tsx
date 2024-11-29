@@ -27,7 +27,7 @@ function IngredientsInput() {
                 placeholder='Type your ingredients'
                 value={ingreInput}
                 onChange={(e) => setIngreInput(e.target.value)}
-                className='md:w-96 mr-4 px-4 py-2 rounded-3xl text-black'
+                className='w-40 md:w-96 mr-2 md:mr-4 px-4 py-2 rounded-3xl text-black'
             />
             <button className='bg-primary-color px-4 py-2 rounded-3xl font-bold text-[#e4f4f1] hover:bg-[#e4f4f1] hover:text-primary-color'>Add to list</button>
         </form>

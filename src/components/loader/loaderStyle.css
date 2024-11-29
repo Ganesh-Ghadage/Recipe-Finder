@@ -2,6 +2,7 @@
 
 #loader-body {
   overflow: hidden;
+  /* width: 100vw; */
 }
 
 #title {
@@ -15,6 +16,7 @@
   color: #ffffff;
   opacity: 0.75;
   animation: pulse 2.5s linear infinite;
+  overflow: hidden;
 }
 
 #cooking {
@@ -230,5 +232,28 @@
   100% {
     transform: scale(1, 1);
     opacity: 0.25;
+  }
+}
+
+@media (max-width: 425px)  {
+  #loader-body {
+    overflow: hidden;
+    width: 100vw;
+    margin: 0 -5%;
+  }
+  
+  #title {
+    position: relative;
+    margin: 0 auto;
+    width: fit-content;
+    font-size: 4vh;
+    overflow: hidden;
+  }
+  
+  #cooking {
+    position: relative;
+    width: 40vh;
+    height: 40vh;
+    overflow: hidden;
   }
 }
